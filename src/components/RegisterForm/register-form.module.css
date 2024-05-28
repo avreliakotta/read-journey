@@ -1,0 +1,91 @@
+.title{
+font-family: var(--font-family);
+font-weight: 700;
+font-size: 64px;
+line-height: 0.94;
+letter-spacing: 0.02em;
+color: var(--invent-color);
+margin-bottom: 40px;
+width:444px;
+}
+.part{
+    color: rgba(227, 227, 227, 0.5);
+}
+.eyeIcon{
+    position:absolute;
+    top:15px;
+    right:15px;
+    
+}
+.wrapper{
+    position:relative;
+    width:472px;
+}
+.btnSubmit{
+border-radius: 30px;
+padding: 16px 54px;
+background-color: var(--invent-color);
+   
+font-family: var(--font-family);
+font-weight: 700;
+font-size: 20px;
+line-height: 1;
+letter-spacing: 0.02em;
+color: #1f1f1f;
+margin-right:20px;
+}
+.inputWrapper{
+    display: flex;
+    flex-direction:column;
+    gap:14px;
+    margin-bottom:82px;
+}
+input{
+    width:472px;
+    height:50px;
+    border-radius: 12px;
+    background: var(--input-bg-color);
+    outline:none;
+    border:none;
+}
+.nameInput{
+    padding:16px 304px 16px 65px;
+}
+.mailInput{
+    padding: 16px 318px 16px 53px;
+}
+.passwordInput{
+    padding: 16px 271px 16px 86px;
+}
+.inputLabel{
+    position:absolute;
+    top:15px;
+    left:14px;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.29;
+    letter-spacing: -0.02em;
+    text-align: center;
+    color: var(--additional-color);
+    
+}
+input::placeholder{
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.02em;
+text-align: center;
+color: var(--invent-color);
+}
+.link{
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: -0.02em;
+text-decoration: underline;
+text-decoration-skip-ink: none;
+color: var( --additional-color);
+}

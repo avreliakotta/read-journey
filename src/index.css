@@ -1,0 +1,42 @@
+:root {
+  --body-bg-color: #141414;
+  --invent-color:#f9f9f9;
+  --input-bg-color:#262626;
+  --additional-color:#686868;
+  
+  --font-family: "Gilroy", sans-serif;
+  --second-family: "SF Pro Text", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+a {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+button {
+  padding: 0;
+  cursor: pointer;
+}
+input {
+  padding: 0;
+}

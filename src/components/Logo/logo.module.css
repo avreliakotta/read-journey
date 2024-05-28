@@ -1,0 +1,20 @@
+.logoIcon{
+    width:42px;
+    height:17px;
+}
+.logoText{
+font-family: var(--font-family);
+font-weight: 700;
+font-size: 18px;
+line-height: 1;
+letter-spacing: 0.02em;
+text-transform: uppercase;
+color: #f9f9f9;
+}
+.wrapper{
+    display: flex;
+    gap:0.5px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom:107px;
+}
