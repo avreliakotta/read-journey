@@ -3,7 +3,8 @@
   --invent-color:#f9f9f9;
   --input-bg-color:#262626;
   --additional-color:#686868;
-  
+  --error-color:#e90516;
+  --success-color: #30b94d;
   --font-family: "Gilroy", sans-serif;
   --second-family: "SF Pro Text", sans-serif;
 }

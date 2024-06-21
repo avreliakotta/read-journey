@@ -1,6 +1,6 @@
 import axios from 'axios';
 const baseURL= "https://readjourney.b.goit.study/api";
-const authInstance=axios.create({
+const instance=axios.create({
     baseURL: `${baseURL}`,
     headers: {
       'Content-Type': 'application/json',
