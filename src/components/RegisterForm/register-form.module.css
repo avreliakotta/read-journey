@@ -109,3 +109,46 @@ input::placeholder {
     color:var(--error-color);
     padding-left:14px;
   }
+  .successMessage{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 117%;
+    letter-spacing: -0.02em;
+    color: var(--success-color);
+    padding-left:14px;
+    }
+    .errorMessage {
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 117%;
+      letter-spacing: -0.02em;
+      color:var(--error-color);
+      padding-left:14px;
+    }
+    .errorBorder{
+        border:1px solid var(--error-color);
+    }
+    .successBorder{
+        border:1px solid var(--success-color);
+    }
+    .errorIcon{
+        position: absolute;
+      top: 15px;
+      right: 15px; 
+    }
+    .iconWrapper{
+      position:absolute;
+      top:15px;
+      right:15px;
+      width:20px;
+      height:20px;
+      border-radius: 50%;
+      border:1px solid var(--success-color);
+      background-color: transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }

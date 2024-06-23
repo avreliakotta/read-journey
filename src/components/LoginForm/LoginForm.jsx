@@ -8,49 +8,55 @@ import { useState, useEffect } from "react";
 import { signinSchema } from "../../schemas/auth-schemas";
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [blurredFields, setBlurredFields] = useState({
-    email: false,
-    password: false,
-  });
 
   const {
     register,
     handleSubmit,
-    formState: { errors, dirtyFields },
+    formState: { errors, dirtyFields, touchedFields,isValid },
+    reset,
     watch,
     trigger,
   } = useForm({
     resolver: yupResolver(signinSchema),
-    mode: "onChange",
+    mode: "onBlur",
+    defaultValues: {
+      email: "",
+      password: "",
+    },
   });
-  
+
   const onSubmit = (data) => {
     console.log(data);
+    reset();
   };
-  const emailValue = watch("email");
-  const passwordValue = watch("password");
-
-  const handleBlur = async (field) => {
-    setBlurredFields((prev) => ({ ...prev, [field]: true }));
-    await trigger(field);
-  };
+ 
+ 
   const renderIcon = (field) => {
-    if (!blurredFields[field] || !dirtyFields[field]) {
-      return null;
-    }
-    if (errors[field]) {
+    if (touchedFields[field] && errors[field]) {
       return (
         <svg className={css.errorIcon} width="18px" height="18px">
           <use href={`${sprite}#icon-error`}></use>
         </svg>
       );
     }
+    if (touchedFields[field] && dirtyFields[field] && !errors[field]) {
+      return (
+        <div className={css.iconWrapper}>
+          <svg className={css.successIcon} width="9px" height="7.6px">
+            <use href={`${sprite}#icon-success`}></use>
+          </svg>
+        </div>
+      );
+    }
     return (
-      <div className={css.iconWrapper}>
-        <svg className={css.successIcon} width="9px" height="7.6px">
-          <use href={`${sprite}#icon-success`}></use>
-        </svg>
-      </div>
+      <svg
+        className={css.eyeIcon}
+        width="20px"
+        height="20px"
+        onClick={() => setShowPassword(!showPassword)}
+      >
+        <use href={`${sprite}#icon-eye${showPassword ? "" : "-off"}`}></use>
+      </svg>
     );
   };
 
@@ -66,25 +72,30 @@ const LoginForm = () => {
 
             <input
               className={`${css.mailInput} ${
-                blurredFields.email &&
-                (errors.email ? css.errorBorder : css.successBorder)
-              }`}
+                touchedFields.email && !errors.email ? css.successBorder : ""
+              } ${errors.email ? css.errorBorder : ""}`}
               type="email"
               {...register("email")}
               placeholder="Your@email.com"
               autoComplete="new-email"
-              onBlur={() => handleBlur("email")}
             />
+            <p
+              className={
+                touchedFields.email && !errors.email
+                  ? css.successMessage
+                  : errors.email
+                  ? css.errorMessage
+                  : ""
+              }
+            >
+              {touchedFields.email && !errors.email
+                ? "Email looks good!"
+                : errors.email
+                ? errors.email.message
+                : ""}
+            </p>
 
-            {blurredFields.email && dirtyFields.email && (
-              <p
-                className={errors.email ? css.errorMessage : css.successMessage}
-              >
-                {errors.email ? errors.email.message : "Email looks good!"}
-              </p>
-            )}
-
-            {renderIcon("email")}
+            {touchedFields.email && renderIcon("email")}
           </div>
 
           <div className={css.wrapper}>
@@ -92,53 +103,36 @@ const LoginForm = () => {
 
             <input
               className={`${css.passwordInput} ${
-                blurredFields.password &&
-                (errors.password ? css.errorBorder : css.successBorder)
-              }`}
+                touchedFields.password && !errors.password
+                  ? css.successBorder
+                  : ""
+              } ${errors.password ? css.errorBorder : ""}`}
               type={showPassword ? "text" : "password"}
               {...register("password")}
               placeholder="Yourpasswordhere"
               autoComplete="new-password"
-              onBlur={() => handleBlur("password")}
             />
 
-            {blurredFields.password && passwordValue && (
-              <p
-                className={
-                  errors.password ? css.errorMessage : css.successMessage
-                }
-              >
-                {errors.password
-                  ? errors.password.message
-                  : "Password is secure"}
-              </p>
-            )}
+            <p
+              className={
+                touchedFields.password && !errors.password
+                  ? css.successMessage
+                  : errors.password
+                  ? css.errorMessage
+                  : ""
+              }
+            >
+              {touchedFields.password && !errors.password
+                ? "Password looks good!"
+                : errors.password
+                ? errors.password.message
+                : ""}
+            </p>
 
-            {blurredFields.password && passwordValue && errors.password ? (
-              <svg className={css.errorIcon} width="18px" height="18px">
-                <use href={`${sprite}#icon-error`}></use>
-              </svg>
-            ) : blurredFields.password ? (
-              <div className={css.iconWrapper}>
-                <svg className={css.successIcon} width="9px" height="7.6px">
-                  <use href={`${sprite}#icon-success`}></use>
-                </svg>
-              </div>
-            ) : (
-              <svg
-                className={css.eyeIcon}
-                width="20px"
-                height="20px"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                <use
-                  href={`${sprite}#icon-eye${showPassword ? "" : "-off"}`}
-                ></use>
-              </svg>
-            )}
+            {renderIcon("password")}
           </div>
         </div>
-        <button className={css.btnSubmit} type="submit">
+        <button className={css.btnSubmit} type="submit" disabled={!isValid}>
           Log In
         </button>
         <NavLink className={css.link} to="/register">
