@@ -1,17 +1,18 @@
-.wrapper{
-position:relative;
-border-radius: 30px;
-width: 600px;
-height: 736px;
-background-color: #1f1f1f;
-
+.wrapper {
+  position: relative;
+  border-radius: 30px;
+  width: 600px;
+  min-height: 736px;
+  background-color: #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ 
 }
-.paddingSmall{
-    padding:40px 64px;
+.paddingSmall {
+  padding: 40px 64px;
 }
-.paddingLarge{
-    /* padding:80px 97px 0px 98px; */
-    padding:0;
+.paddingLarge {
+  /* padding:80px 97px 0px 98px; */
+  padding: 0;
 }
-
-  

@@ -5,13 +5,19 @@ import sprite from "../../assets/img/sprite/symbol-defs.svg";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { signupSchema } from "../../schemas/auth-schemas";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../redux/auth/auth-thunk";
+import { selectLoading } from "../../redux/auth/auth-selectors";
+import toast from 'react-hot-toast';
 
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+  const loading = useSelector(selectLoading);
   const {
     register,
     handleSubmit,
-    formState: { errors, touchedFields,dirtyFields,isValid },
+    formState: { errors, touchedFields, dirtyFields, isValid },
     reset,
   } = useForm({
     resolver: yupResolver(signupSchema),
@@ -22,10 +28,20 @@ const RegisterForm = () => {
       password: "",
     },
   });
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = async (data) => {
+    try {
+      await dispatch(registerUser(data)).unwrap();
+      toast.success('Registration successful');
+     
+    } catch (e) {
+      console.error('Registration error:', e); 
+    
+      toast.error(`Registration failed: ${e.message || 'Unknown error occurred'}`);
+    }
     reset();
   };
+ 
   const renderIcon = (field) => {
     if (touchedFields[field] && errors[field]) {
       return (
@@ -153,12 +169,14 @@ const RegisterForm = () => {
             {renderIcon("password")}
           </div>
         </div>
-        <button className={css.btnSubmit} type="submit" disabled={!isValid}>
-          Registration
-        </button>
-        <NavLink className={css.link} to="/login">
-          Already have an account?
-        </NavLink>
+        <div className={css.buttonWrapper}>
+          <button className={css.btnSubmit} type="submit" disabled={!isValid}>
+            Registration
+          </button>
+          <NavLink className={css.link} to="/login">
+            Already have an account?
+          </NavLink>
+        </div>
       </form>
     </>
   );

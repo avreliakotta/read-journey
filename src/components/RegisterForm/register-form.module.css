@@ -7,6 +7,7 @@
   color: var(--invent-color);
   margin-bottom: 40px;
   width: 444px;
+  height: 180px;
 }
 .part {
   color: rgba(227, 227, 227, 0.5);
@@ -20,28 +21,36 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap:8px;
   width: 472px;
 }
+
 .btnSubmit {
   border-radius: 30px;
-  padding: 16px 54px;
+  width: 225px;
+  height: 52px;
   background-color: var(--invent-color);
-
   font-family: var(--font-family);
   font-weight: 700;
   font-size: 20px;
   line-height: 1;
   letter-spacing: 0.02em;
   color: #1f1f1f;
-  margin-right: 20px;
 }
+
 .inputWrapper {
   display: flex;
   flex-direction: column;
   gap: 14px;
   margin-bottom: 82px;
+ 
+ 
 }
+.buttonWrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
 input {
   width: 472px;
   height: 50px;
@@ -57,8 +66,8 @@ input {
 
   color: var(--invent-color);
 }
-input:focus{
-    border: 1px solid rgba(249, 249, 249, 0.1);
+input:focus {
+  border: 1px solid rgba(249, 249, 249, 0.1);
 }
 .nameInput {
   padding: 16px 304px 16px 65px;
@@ -100,55 +109,58 @@ input::placeholder {
   text-decoration-skip-ink: none;
   color: var(--additional-color);
 }
-.message {
+/* .message {
     font-family: var(--font-family);
     font-weight: 500;
     font-size: 12px;
-    line-height: 117%;
+    line-height: 1.17;
     letter-spacing: -0.02em;
     color:var(--error-color);
     padding-left:14px;
-  }
-  .successMessage{
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 117%;
-    letter-spacing: -0.02em;
-    color: var(--success-color);
-    padding-left:14px;
-    }
-    .errorMessage {
-      font-family: var(--font-family);
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 117%;
-      letter-spacing: -0.02em;
-      color:var(--error-color);
-      padding-left:14px;
-    }
-    .errorBorder{
-        border:1px solid var(--error-color);
-    }
-    .successBorder{
-        border:1px solid var(--success-color);
-    }
-    .errorIcon{
-        position: absolute;
-      top: 15px;
-      right: 15px; 
-    }
-    .iconWrapper{
-      position:absolute;
-      top:15px;
-      right:15px;
-      width:20px;
-      height:20px;
-      border-radius: 50%;
-      border:1px solid var(--success-color);
-      background-color: transparent;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-  }
+   
+  } */
+.successMessage {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  color: var(--success-color);
+  padding-left: 14px;
+  margin-top: 8px;
+}
+.errorMessage {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  color: var(--error-color);
+  padding-left: 14px;
+  margin-top: 8px;
+}
+.errorBorder {
+  border: 1px solid var(--error-color);
+}
+.successBorder {
+  border: 1px solid var(--success-color);
+}
+.errorIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.iconWrapper {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--success-color);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,11 +1,8 @@
-.img{
-    position:absolute;
-    left:98px;
-    bottom:0;
-    display:block;
-    width:405px;
-    height:821px;
-    height:auto;
-    border-radius: 30px;
-   
+.imgThumb {
+  height: 100%;
+  border-radius: 30px;
+  background-image: url(../../assets/img/register-img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }

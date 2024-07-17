@@ -20,7 +20,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap:8px;
+ 
   width: 472px;
 }
 .btnSubmit {
@@ -100,6 +100,7 @@ input::placeholder {
   letter-spacing: -0.02em;
   color:var(--error-color);
   padding-left:14px;
+  margin-top: 8px;
 }
 .iconWrapper{
     position:absolute;
@@ -123,6 +124,7 @@ line-height: 117%;
 letter-spacing: -0.02em;
 color: var(--success-color);
 padding-left:14px;
+margin-top: 8px;
 }
 .errorBorder{
     border:1px solid var(--error-color);

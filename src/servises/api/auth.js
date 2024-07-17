@@ -17,20 +17,7 @@ import {setToken, clearToken} from "../../instance/instance";
     clearToken();
     return(data);
  }
- export const refreshToken = async (refreshToken) => {
-    try {
-        const { data } = await instance.get('/users/current/refresh', {
-            headers: {
-                'Authorization': `Bearer ${refreshToken}`
-            }
-        });
-        return {accessToken:data.token,
-                refreshToken:data.refreshToken};
-    } catch (error) {
-        console.error("Failed to refresh token:", error);
-        throw error;
-    }
-};
+
 
 export const getCurrentUser = async (token, refreshToken) => {
     try {
@@ -51,3 +38,19 @@ export const getCurrentUser = async (token, refreshToken) => {
         }
     }
 };
+export const refreshToken = async (refreshToken) => {
+    try {
+        const { data } = await instance.get('/users/current/refresh', {
+            headers: {
+                'Authorization': `Bearer ${refreshToken}`
+            }
+        });
+        return {accessToken:data.token,
+                refreshToken:data.refreshToken};
+    } catch (error) {
+        console.error("Failed to refresh token:", error);
+        throw error;
+    }
+};
+
+  

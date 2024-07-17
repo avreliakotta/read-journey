@@ -13,4 +13,4 @@ export const setToken = token => {
 export const clearToken = () => {
 	instance.defaults.headers.common.Authorization = "";
 };
-export default authInstance;
+export default instance;

@@ -1,18 +1,19 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-
+import { useDispatch, useSelector } from "react-redux";
 import css from "./login-form.module.css";
 import sprite from "../../assets/img/sprite/symbol-defs.svg";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { signinSchema } from "../../schemas/auth-schemas";
+import { login } from "../../redux/auth/auth-thunk";
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
-
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
-    formState: { errors, dirtyFields, touchedFields,isValid },
+    formState: { errors, dirtyFields, touchedFields, isValid },
     reset,
     watch,
     trigger,
@@ -26,11 +27,16 @@ const LoginForm = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-    reset();
+    dispatch(login(data))
+      .then((result) => {
+        console.log("Login successful:", result);
+      })
+      .catch((e) => {
+        console.error("Login failed:", e);
+      });
+      reset();
   };
- 
- 
+
   const renderIcon = (field) => {
     if (touchedFields[field] && errors[field]) {
       return (
