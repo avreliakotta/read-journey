@@ -1,54 +1,174 @@
-.title {
+.title{
   font-family: var(--font-family);
   font-weight: 700;
-  font-size: 64px;
-  line-height: 0.94;
-  letter-spacing: 0.02em;
+  font-size: 32px;
+  line-height: 1;
   color: var(--invent-color);
-  margin-bottom: 40px;
-  width: 444px;
+  margin-bottom: 20px;
+  width: 295px;
 }
 .part {
   color: rgba(227, 227, 227, 0.5);
 }
 .eyeIcon {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  width:18px;
+  height:18px;
+  top: 13px;
+  right: 13px;
+}
+.errorIcon{
+  position: absolute;
+  top: 13px;
+  right: 13px; 
+  width:18px;
+  height:18px;
 }
 .wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
- 
-  width: 472px;
+  width: 295px;
 }
 .btnSubmit {
   border-radius: 30px;
-  padding: 16px 54px;
+  padding: 12px 45px;
   background-color: var(--invent-color);
-
   font-family: var(--font-family);
   font-weight: 700;
-  font-size: 20px;
-  line-height: 1;
+  font-size: 14px;
+  line-height: 1.29;
   letter-spacing: 0.02em;
   color: #1f1f1f;
-  margin-right: 20px;
+  margin-right: 14px;
 }
 .inputWrapper {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  margin-bottom: 82px;
+  gap: 8px;
+  margin-bottom: 72px;
 }
-input {
-  width: 472px;
-  height: 50px;
+.inputField {
+  width: 295px;
+  height: 44px;
   border-radius: 12px;
   background: var(--input-bg-color);
   outline: none;
   border: none;
+  color: var(--invent-color);
+}
+input:focus{
+    border: 1px solid rgba(249, 249, 249, 0.1);
+}
+.mailInput {
+  padding: 14px 159px 14px 49px;
+}
+.passwordInput {
+  padding: 14px 119px 14px 78px;
+}
+.successIcon{
+  width:8.1px;
+   height: 6.8px;
+  }
+  .iconWrapper {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid var(--success-color);
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .inputLabel{
+    position: absolute;
+    top: 14px;
+    left: 14px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+    color: var(--additional-color);
+  }
+  input::placeholder {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    letter-spacing: -0.02em;
+    color: var(--invent-color);
+  }
+  .link{
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: -0.02em;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    color: var(--additional-color);
+    }
+    .successMessage{
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--success-color);
+      margin-top: 4px;
+    }
+    .errorMessage{
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--error-color);
+      margin-top: 4px;
+    }
+    .successIcon{
+      width:8.1px;
+       height: 6.8px;
+      }
+
+@media screen and (min-width: 767px) {
+.title {
+  font-size: 64px;
+  line-height: 0.94;
+  letter-spacing: 0.02em;
+ margin-bottom: 40px;
+  width: 444px;
+}
+
+.eyeIcon {
+  position: absolute;
+  width:20px;
+  height:20px;
+  top: 15px;
+  right: 15px;
+}
+.wrapper {
+  width: 472px;
+}
+.btnSubmit {
+  padding: 16px 54px;
+  font-size: 20px;
+  line-height: 1;
+  margin-right: 20px;
+}
+.inputWrapper {
+  gap: 14px;
+  margin-bottom: 82px;
+}
+.inputField {
+  width: 472px;
+  height: 50px;
+ 
 }
 input:focus{
     border: 1px solid rgba(249, 249, 249, 0.1);
@@ -62,68 +182,39 @@ input:focus{
   
 }
 .inputLabel {
-  position: absolute;
   top: 15px;
   left: 14px;
-  font-family: var(--font-family);
-  font-weight: 500;
   font-size: 14px;
   line-height: 1.29;
-  letter-spacing: -0.02em;
-  text-align: center;
-  color: var(--additional-color);
-}
+ }
 input::placeholder {
-  font-family: var(--font-family);
-  font-weight: 500;
   font-size: 14px;
-  line-height: 1.29;
-  letter-spacing: -0.02em;
-  text-align: center;
-  color: var(--invent-color);
-}
+  line-height: 1.29
+  }
 .link {
-  font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.29;
-  letter-spacing: -0.02em;
-  text-decoration: underline;
-  text-decoration-skip-ink: none;
-  color: var(--additional-color);
+   font-size: 14px;
+    line-height: 1.29;
+
 }
 .errorMessage {
-  font-family: var(--font-family);
-  font-weight: 500;
   font-size: 12px;
-  line-height: 117%;
-  letter-spacing: -0.02em;
-  color:var(--error-color);
-  padding-left:14px;
+  line-height: 1.17;
   margin-top: 8px;
 }
+.successIcon{
+  width: 9px;
+   height: 7.6px;
+  }
 .iconWrapper{
-    position:absolute;
     top:15px;
     right:15px;
     width:20px;
     height:20px;
-    border-radius: 50%;
-    border:1px solid var(--success-color);
-    background-color: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+   
 }
 .successMessage{
-font-family: var(--font-family);
-font-weight: 500;
 font-size: 12px;
-line-height: 117%;
-letter-spacing: -0.02em;
-color: var(--success-color);
-padding-left:14px;
+line-height: 1.17;
 margin-top: 8px;
 }
 .errorBorder{
@@ -133,7 +224,10 @@ margin-top: 8px;
     border:1px solid var(--success-color);
 }
 .errorIcon{
-    position: absolute;
+  position: absolute;
   top: 15px;
   right: 15px; 
+  width:20px;
+  height:20px;
+}
 }

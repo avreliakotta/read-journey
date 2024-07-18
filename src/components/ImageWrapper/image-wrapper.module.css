@@ -1,0 +1,23 @@
+.wrapper{
+    position:relative;
+    width: 335px;
+    height: 351px;
+    border-radius: 30px;
+    
+    background-color:var(--wrapper-bg-color);
+   
+}
+ @media screen and (min-width: 767px) {
+    .wrapper{
+     display:none;
+    } 
+ }
+    @media screen and (min-width: 1440px) {
+        .wrapper{
+        display: block;
+        width: 600px;
+        min-height: 736px;
+        
+    
+        }
+    }

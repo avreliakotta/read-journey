@@ -3,15 +3,32 @@
     margin-right: auto;
     background-color: var(--body-bg-color);
     height:auto;
-    display:flex;
-    gap:16px;
+    width: 375px;
+    /* height: 812px; */
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+   
 }
+@media screen and (min-width: 767px) {
+    .container{
+        width: 768px;
+        height: 1024px;
+        padding:32px;
+    }
+}
+
 @media screen and (min-width: 1440px) {
     .container{
+        display :flex;
+        flex-direction:row;
         width:1280px;
-        padding:32px;
+        height:800px;
+       
         display: flex;
         gap:16px;
+        
         
     }
 }

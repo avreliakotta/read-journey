@@ -1,8 +1,29 @@
 .imgThumb {
+  
   height: 100%;
   border-radius: 30px;
   background-image: url(../../assets/img/register-img.jpg);
+ 
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
+}
+
+
+ @media screen and (min-width: 767px) {
+  .imgThumb {
+    display:none;
+  }
+} 
+
+@media screen and (min-width: 1440px) {
+  .imgThumb {
+    display:block;
+    height: 100%;
+    border-radius: 30px;
+    background-image: url(../../assets/img/register-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
 }

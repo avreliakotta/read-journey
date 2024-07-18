@@ -3,10 +3,10 @@ import React from "react";
 import Logo from "../Logo/Logo";
 
 
-const RegisterWrapper = ({ children,padding,showLogo }) => {
+const RegisterWrapper = ({ children}) => {
   return (
-    <div  className={`${css.wrapper} ${css[padding]}`}>
-      {showLogo && <Logo />} 
+    <div  className={css.wrapper}>
+       <Logo /> 
       {children}
     </div>
   );

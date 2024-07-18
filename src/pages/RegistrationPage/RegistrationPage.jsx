@@ -4,15 +4,16 @@ import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import RegisterWrapper from "../../components/RegisterWrapper/RegisterWrapper";
 import Container from "../../components/Container/Container"; 
 import RegisterImage from "../../components/RegisterImage/RegisterImage";
+import ImageWrapper from "../../components/ImageWrapper/ImageWrapper";
 const RegistrationPage = () => {
     return (
         <Container>
-        <RegisterWrapper padding="paddingSmall" showLogo={true}>
+        <RegisterWrapper >
             <RegisterForm />
         </RegisterWrapper>
-        <RegisterWrapper padding="paddingLarge" showLogo={false}>
+        <ImageWrapper>
        <RegisterImage />
-        </RegisterWrapper>
+        </ ImageWrapper>
         </Container>
     );
 };

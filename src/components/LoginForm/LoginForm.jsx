@@ -40,7 +40,7 @@ const LoginForm = () => {
   const renderIcon = (field) => {
     if (touchedFields[field] && errors[field]) {
       return (
-        <svg className={css.errorIcon} width="18px" height="18px">
+        <svg className={css.errorIcon}>
           <use href={`${sprite}#icon-error`}></use>
         </svg>
       );
@@ -48,7 +48,7 @@ const LoginForm = () => {
     if (touchedFields[field] && dirtyFields[field] && !errors[field]) {
       return (
         <div className={css.iconWrapper}>
-          <svg className={css.successIcon} width="9px" height="7.6px">
+          <svg className={css.successIcon}>
             <use href={`${sprite}#icon-success`}></use>
           </svg>
         </div>
@@ -57,8 +57,8 @@ const LoginForm = () => {
     return (
       <svg
         className={css.eyeIcon}
-        width="20px"
-        height="20px"
+        
+        
         onClick={() => setShowPassword(!showPassword)}
       >
         <use href={`${sprite}#icon-eye${showPassword ? "" : "-off"}`}></use>
@@ -69,7 +69,7 @@ const LoginForm = () => {
   return (
     <>
       <h1 className={css.title}>
-        Expand your mind, reading a <span className={css.part}>book</span>
+        Expand your mind, reading <span className={css.part}>a book</span>
       </h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={css.inputWrapper}>
@@ -77,7 +77,7 @@ const LoginForm = () => {
             <label className={css.inputLabel}>Mail:</label>
 
             <input
-              className={`${css.mailInput} ${
+              className={`${css.inputField} ${css.mailInput} ${
                 touchedFields.email && !errors.email ? css.successBorder : ""
               } ${errors.email ? css.errorBorder : ""}`}
               type="email"
@@ -108,7 +108,7 @@ const LoginForm = () => {
             <label className={css.inputLabel}>Password:</label>
 
             <input
-              className={`${css.passwordInput} ${
+              className={`${css.inputField} ${css.passwordInput} ${
                 touchedFields.password && !errors.password
                   ? css.successBorder
                   : ""
