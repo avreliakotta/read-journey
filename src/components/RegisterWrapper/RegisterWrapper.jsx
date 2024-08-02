@@ -6,7 +6,7 @@ import Logo from "../Logo/Logo";
 const RegisterWrapper = ({ children}) => {
   return (
     <div  className={css.wrapper}>
-       <Logo /> 
+       <Logo paddingClass="paddingSmall"/> 
       {children}
     </div>
   );

@@ -1,7 +1,7 @@
-export const selectIsUserLogin = state => state.auth.isLogin;
-export const selectUserToken = state => state.auth.token;
-export const selectLoading= state => state.auth.loading;
-export const selectUser = (state) => state.auth.user;
-export const selectError = (state) => state.auth.error;
-export const selectToken = (state) => state.auth.token;
-export const selectRefreshToken = (state) => state.auth.refreshToken;
+export const selectIsUserLogin = state => state.users.isLogin;
+export const selectUserToken = state => state.users.token;
+export const selectLoading= state => state.users.loading;
+export const selectUser = (state) => state.users.user;
+export const selectError = (state) => state.users.error;
+
+export const selectRefreshToken = (state) => state.users.refreshToken;

@@ -3,7 +3,7 @@
     width: 335px;
     height: 351px;
     border-radius: 30px;
-    
+   
     background-color:var(--wrapper-bg-color);
    
 }
@@ -17,6 +17,7 @@
         display: block;
         width: 600px;
         min-height: 736px;
+        
         
     
         }

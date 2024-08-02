@@ -11,9 +11,9 @@ const RegistrationPage = () => {
         <RegisterWrapper >
             <RegisterForm />
         </RegisterWrapper>
-        <ImageWrapper>
+        {/* <ImageWrapper> */}
        <RegisterImage />
-        </ ImageWrapper>
+        {/* </ ImageWrapper> */}
         </Container>
     );
 };

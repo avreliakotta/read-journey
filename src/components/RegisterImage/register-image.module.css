@@ -1,12 +1,13 @@
 .imgThumb {
-  
-  height: 100%;
-  border-radius: 30px;
-  background-image: url(../../assets/img/register-img.jpg);
- 
+  background-image: url(../../assets/img/register_mobile.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
+  position:relative;
+  width: 335px;
+  height: 351px;
+  border-radius: 30px;
+  background-color:var(--wrapper-bg-color);
 }
 
 
@@ -19,9 +20,11 @@
 @media screen and (min-width: 1440px) {
   .imgThumb {
     display:block;
-    height: 100%;
+    width: 600px;
+    min-height: 736px;
     border-radius: 30px;
     background-image: url(../../assets/img/register-img.jpg);
+    background-color: transparent;
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;

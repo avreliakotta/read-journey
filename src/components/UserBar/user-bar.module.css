@@ -1,0 +1,40 @@
+.userIcon{
+width:40px;
+height:40px;
+background-color: var(--input-bg-color);
+border-radius: 50%;
+border: 1px solid rgba(249, 249, 249, 0.2);
+display: flex;
+justify-content: center;
+align-items:center;
+color:var(--invent-color);
+font-family: var(--font-family);
+font-weight: 700;
+font-size: 16px;
+line-height: 1.12;
+letter-spacing: -0.02em;
+
+}
+.userWrapper{
+    display:flex;
+    gap:11px;
+    align-items: center;
+}
+.userName{
+    display: none;
+}
+
+
+
+@media screen and (min-width:1400px){
+    .userName{
+        display: block;
+        font-family: var(--font-family);
+    font-weight: 700;
+font-size: 16px;
+line-height: 1.12;
+letter-spacing: -0.02em;
+text-align: center;
+color: var(--invent-color);
+    }
+}

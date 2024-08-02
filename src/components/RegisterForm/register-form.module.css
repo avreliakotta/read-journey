@@ -6,6 +6,8 @@
   color: var(--invent-color);
   margin-bottom: 20px;
   width:295px;
+  
+  
 }
 .part {
   color: rgba(227, 227, 227, 0.5);
@@ -62,7 +64,14 @@ input:focus {
   font-size: 14px;
   line-height: 1.29;
   letter-spacing: 0.02em;
-  color: #1f1f1f;
+  color: var(--wrapper-bg-color);
+  transition:background-color var(--transition-duration) var(--transition-time-function), color var( --transition-duration) var(--transition-time-function), border var(--transition-duration) var(--transition-time-function) ;
+}
+.btnSubmit:is(:hover,:focus){
+  border: 1px solid rgba(249, 249, 249, 0.2);
+  background-color:var(--body-bg-color);
+  color:var(--invent-color);
+
 }
 .buttonWrapper{
   display: flex;
@@ -144,6 +153,7 @@ input::placeholder {
 }
 
 @media screen and (min-width: 767px) {
+ 
   .title {
     font-size: 64px;
     line-height: 0.94;
@@ -152,6 +162,7 @@ input::placeholder {
     margin-bottom: 40px;
     width: 444px;
     height: 180px;
+   
   }
 
   .eyeIcon {

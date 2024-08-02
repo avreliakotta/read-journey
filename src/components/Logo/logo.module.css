@@ -9,8 +9,17 @@ display:none;
     display: flex;
     gap:0.5px;
     justify-content: flex-start;
-    padding-bottom:40px;
+    /* padding-bottom:40px; */
 }
+.paddingSmall {
+    padding-bottom: 40px;
+  }
+  
+ 
+  
+  .resetPadding {
+    padding-bottom: 0;
+  }
 @media screen and (min-width: 767px) {
     .logoText{
         display:block;
@@ -27,11 +36,14 @@ display:none;
             display: flex;
             gap:0.5px;
             justify-content: flex-start;
-            padding-bottom:157.5px;
+            /* padding-bottom:157.5px; */
         }
+        .paddingSmall {
+            padding-bottom: 157px;
+          }
 }
-@media screen and (min-width: 767px) {
-    .wrapper{
-        padding-bottom:107px;
-    }
+@media screen and (min-width: 1440px) {
+    .paddingSmall {
+        padding-bottom: 107px;
+      }
 }

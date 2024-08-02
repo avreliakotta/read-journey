@@ -4,85 +4,78 @@ import {
   signin,
   logoutUser,
   getCurrentUser,
-  refreshToken,
+  
 } from "../../servises/api/auth";
+import { setToken } from "../../instance/instance";
+
 export const registerUser = createAsyncThunk(
-  "auth/registerUser",
+  "users/registerUser",
   async (credentials, { rejectWithValue }) => {
     try {
       const data = await signup(credentials);
-
       return data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      console.error("RegisterUser error:", error);
+      return rejectWithValue(error.response);
     }
   }
 );
+
+
 export const login = createAsyncThunk(
-  "auth/login",
+  'users/login',
   async (credentials, { rejectWithValue }) => {
     try {
       return await signin(credentials);
+      
     } catch (error) {
-      if (error.response) {
-        const { status, data } = error.response;
-        if (error.response) {
-          const { status, data } = error.response;
-          let message = "An unexpected error occurred";
-
-          if (status === 400) {
-            message = "Invalid request body";
-          } else if (status === 404) {
-            message = "Service not found";
-          } else if (status === 409) {
-            message = data.message || "Such email already exists";
-          } else if (status === 500) {
-            message = "Server error";
-          }
-
-          return rejectWithValue({ message, status });
-        } else {
-          return rejectWithValue({ message: error.message, status: null });
-        }
+      if (error.response &&error.response.data.message) {
+       return rejectWithValue(error.response.data.message)
+      }else{
+        return  rejectWithValue(error.message)
       }
     }
   }
 );
 
 export const logout = createAsyncThunk(
-  "auth/logout",
-  async (_, { rejectWithValue }) => {
-    try {
+  'auth/logout',
+  async (_, { rejectWithValue,getState}) => {
+    try{
+      const { token } = getState().users;
+      if (!token) {
+        throw new Error('No token found');
+      }
+
+      setToken(token);
       return await logoutUser();
-    } catch (error) {
-      return rejectWithValue(error.response.data);
+    }catch(error){
+      if (error.response &&error.response.data.message) {
+        return rejectWithValue(error.response.data.message)
+       }else{
+         return  rejectWithValue(error.message)
+       }
     }
+     
+     
+      
   }
 );
 
 export const current = createAsyncThunk(
-  "auth/current",
+  "users/current",
   async (_, { rejectWithValue, getState }) => {
-    const { auth } = getState();
+    const { token } = getState().users;
     try {
-      return await getCurrentUser(auth.token, auth.refreshToken);
+      setToken(token);
+      return await getCurrentUser();
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      if (error.response &&error.response.data.message) {
+        return rejectWithValue(error.response.data.message)
+       }else{
+         return  rejectWithValue(error.message)
+       }
     }
   }
 );
 
-export const refreshAuthToken = createAsyncThunk(
-  "auth/refreshAuthToken",
-  async (_, { getState, rejectWithValue }) => {
-    const { auth } = getState();
-    try {
-      const newTokens = await refreshToken(auth.refreshToken);
-      setToken(newTokens.accessToken);
-      return newTokens;
-    } catch (error) {
-      clearToken();
-      return rejectWithValue(error.response.data);
-    }
-  }
-);

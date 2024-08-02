@@ -7,13 +7,17 @@ import { useState } from "react";
 import { signupSchema } from "../../schemas/auth-schemas";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "../../redux/auth/auth-thunk";
-import { selectLoading } from "../../redux/auth/auth-selectors";
+import { selectLoading,selectError } from "../../redux/auth/auth-selectors";
 import toast from 'react-hot-toast';
 
 const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const loading = useSelector(selectLoading);
+  const error =useSelector(selectError);
+ 
+
+ 
   const {
     register,
     handleSubmit,
@@ -31,7 +35,8 @@ const RegisterForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      await dispatch(registerUser(data)).unwrap();
+    const result=  await dispatch(registerUser(data)).unwrap();
+    // console.log('Registration result:', result);
       toast.success('Registration successful');
      
     } catch (e) {
@@ -41,6 +46,7 @@ const RegisterForm = () => {
     }
     reset();
   };
+ 
  
   const renderIcon = (field) => {
     if (touchedFields[field] && errors[field]) {
@@ -71,9 +77,11 @@ const RegisterForm = () => {
   };
   return (
     <>
+   
       <h1 className={css.title}>
         Expand your mind, reading <span className={css.part}>a book</span>
       </h1>
+     
       <form className={css.registerForm} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.inputWrapper}>
           <div className={css.wrapper}>
@@ -177,6 +185,7 @@ const RegisterForm = () => {
           </NavLink>
         </div>
       </form>
+      
     </>
   );
 };

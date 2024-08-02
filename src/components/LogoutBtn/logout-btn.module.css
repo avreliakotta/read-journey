@@ -1,0 +1,45 @@
+/* .logoutButton{
+border: 1px solid rgba(249, 249, 249, 0.2);
+background-color:var(--body-bg-color);
+border-radius: 30px;
+padding: 10px 20px;
+font-family: var(--font-family);
+font-weight: 700;
+font-size: 14px;
+line-height: 1.29;
+letter-spacing: 0.02em;
+color: var(--invent-color);
+transition:background-color var( --transition-duration) var(--transition-time-function), color var( --transition-duration) var(--transition-time-function);
+display:none;
+}
+.logoutButton:is(:hover,:focus){
+background-color: var(--invent-color);
+color:var(--wrapper-bg-color);
+} */
+.logoutButton{
+    display:none;
+}
+
+@media screen and (min-width:768px){
+    .logoutButton{
+    display:block;
+    padding: 12px 28px;
+    border: 1px solid rgba(249, 249, 249, 0.2);
+    background-color:var(--body-bg-color);
+    border-radius: 30px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.12;
+    letter-spacing: 0.02em;
+    color: var(--invent-color);
+    transition:background-color var( --transition-duration) var(--transition-time-function), color var( --transition-duration) var(--transition-time-function);
+    
+    }
+    .logoutButton:is(:hover,:focus){
+    background-color: var(--invent-color);
+    color:var(--wrapper-bg-color);
+    }
+
+
+    }
